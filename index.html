@@ -330,13 +330,26 @@
         <a class="route-link" href="https://www.google.com/maps/dir/?api=1&destination=Rua+Heitor+de+Moura+Estev%C3%A3o+502+V%C3%A1rzea+Teres%C3%B3polis+RJ">Traçar rota →</a>
       </div>
 
-      <form class="contact-form" action="#" method="post">
-        <label class="sr-only" for="name">Nome</label>
-        <input id="name" name="name" placeholder="Nome" required>
-        <label class="sr-only" for="phone">WhatsApp</label>
-        <input id="phone" name="phone" placeholder="WhatsApp" required>
-        <button type="submit">Enviar mensagem</button>
-      </form>
+      <form class="contact-form" id="contactForm">
+  <label class="sr-only" for="name">Nome</label>
+  <input id="name" name="name" placeholder="Nome" required>
+  <label class="sr-only" for="phone">WhatsApp</label>
+  <input id="phone" name="phone" placeholder="WhatsApp" required>
+  <label class="sr-only" for="message">Mensagem</label>
+  <textarea id="message" name="message" rows="3" placeholder="Mensagem"></textarea>
+  <button type="submit">Enviar mensagem</button>
+</form>
+<script>
+document.getElementById('contactForm').addEventListener('submit', function (e) {
+  e.preventDefault();
+  var nome = document.getElementById('name').value.trim();
+  var fone = document.getElementById('phone').value.trim();
+  var msg = document.getElementById('message').value.trim();
+  var texto = 'Olá! Meu nome é ' + nome + ' (WhatsApp: ' + fone + ').'
+    + (msg ? ' ' + msg : ' Gostaria de agendar uma consulta.');
+  window.open('https://wa.me/5521964994664?text=' + encodeURIComponent(texto), '_blank');
+});
+</script>
     </section>
 
   </main>
