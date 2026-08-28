@@ -345,8 +345,7 @@ document.getElementById('contactForm').addEventListener('submit', function (e) {
   var nome = document.getElementById('name').value.trim();
   var fone = document.getElementById('phone').value.trim();
   var msg = document.getElementById('message').value.trim();
-  var texto = 'Olá! Meu nome é ' + nome + ' (WhatsApp: ' + fone + ').'
-    + (msg ? ' ' + msg : ' Gostaria de agendar uma consulta.');
+  var texto = (msg ? ' ' + msg : ' Gostaria de agendar uma consulta.');
   window.open('https://wa.me/5521964994664?text=' + encodeURIComponent(texto), '_blank');
 });
 </script>
